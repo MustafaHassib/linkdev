@@ -7,7 +7,7 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  sidebarShow;
+  sidebarShow = true;
   navHeight: any;
   constructor(@Inject(DOCUMENT) private document: Document) {}
 }
