@@ -85,7 +85,6 @@
         border-radius: 3px;
         padding: 10px 15px;
         box-shadow: none;
-        &:focus,
         &:hover {
           background-color: $light_blue;
         }
@@ -218,7 +217,7 @@
   transform: translate3d(-100%, 0, 0);
   // transform: translateX(-100%);
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  width: 350px;
+  width: 450px;
   z-index: 1001;
   @media (max-width: 575.98px) {
     width: 300px;
