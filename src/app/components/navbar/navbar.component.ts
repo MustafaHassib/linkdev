@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   sidebarShow;
-  constructor() {}
-
-  ngOnInit(): void {}
+  navHeight: any;
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 }

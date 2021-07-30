@@ -1,8 +1,11 @@
-<nav class="navbar navbar-expand-sm navbar-dark">
+<nav id="navbar" class="navbar navbar-expand-sm fixed-top navbar-dark">
   <div class="container">
     <div class="navbar__left-side">
       <button class="side-toggle" (click)="sidebarShow = !sidebarShow">
-        <div class="side-toggle__icon"></div>
+        <div
+          class="side-toggle__icon"
+          [ngClass]="sidebarShow ? 'active-overlay' : ''"
+        ></div>
       </button>
       <a class="navbar-brand" href="#">
         <img class="logo" src="assets/images/logo.svg" alt="" />
@@ -34,6 +37,11 @@
     </div>
   </div>
 </nav>
+<div
+  class="sidebar-overlay"
+  (click)="sidebarShow = !sidebarShow"
+  [ngClass]="sidebarShow ? 'active-overlay' : ''"
+></div>
 <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
   <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
