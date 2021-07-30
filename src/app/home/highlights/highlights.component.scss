@@ -39,9 +39,26 @@
       color: white;
     }
   }
+
+  .carousel-control-next {
+    .carousel-control-next-icon {
+      width: 3rem;
+      height: 3rem;
+      background-size: 50%;
+      background-color: #75757599;
+    }
+  }
+  .carousel-control-prev {
+    .carousel-control-prev-icon {
+      width: 3rem;
+      height: 3rem;
+      background-size: 50%;
+      background-color: #75757599;
+    }
+  }
   .carousel-control-next,
-  .carousel-caption,
   .carousel-control-prev,
+  .carousel-caption,
   .carousel-indicators {
     z-index: 1001;
   }
