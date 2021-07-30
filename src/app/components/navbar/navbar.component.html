@@ -14,33 +14,73 @@
 
     <div class="navbar__right-side">
       <div class="search">
-        <a href="#!">
+        <button
+          class="btn"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          data-bs-trigger="hover"
+          title="Search"
+        >
           <i class="fa fa-search"></i>
-        </a>
+        </button>
       </div>
       <div class="notifications">
-        <a href="#!">
+        <button
+          class="btn"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Notifications"
+          data-bs-trigger="hover"
+        >
           <i class="far fa-bell"></i>
-        </a>
+        </button>
       </div>
       <div class="profile">
-        <a href="#!" class="profile__userinfo">
+        <button href="#!" class="btn profile__userinfo">
           <img src="assets/images/img.png" alt="" />
           <span class="username"> Mustafa Hassib </span>
-        </a>
+        </button>
       </div>
+
       <div class="settings">
-        <a href="#!">
+        <button class="btn" (click)="dropdownShow = !dropdownShow">
           <i class="fa fa-cog"></i>
-        </a>
+        </button>
+        <div *ngIf="dropdownShow" class="settings__dropdown shadow">
+          <ul class="settings__list">
+            <li class="settings__list--item title">Language</li>
+            <li class="settings__list--item">
+              <a href="#!" class="settings__list--link"> English </a>
+            </li>
+            <li class="settings__list--item">
+              <a href="#!" class="settings__list--link">اللغة العربية</a>
+            </li>
+          </ul>
+          <ul class="settings__list">
+            <li class="settings__list--item title">Font size</li>
+            <li class="settings__list--item">
+              <div class="font-switch">
+                <a href="#!" class="font-large">A</a>
+                <a href="#!" class="font-medium active-font">A</a>
+                <a href="#!" class="font-small">A</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="settings__list">
+            <li class="settings__list--item title">Account</li>
+            <li class="settings__list--item">
+              <a href="#!" class="settings__list--link"> Sign out </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </nav>
 <div
   class="sidebar-overlay"
-  (click)="sidebarShow = !sidebarShow"
-  [ngClass]="sidebarShow ? 'active-overlay' : ''"
+  (click)="sidebarShow = false; dropdownShow = false"
+  [ngClass]="sidebarShow || dropdownShow ? 'active-overlay' : ''"
 ></div>
 <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
   <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>

@@ -4,6 +4,10 @@
   background-color: $main_blue;
   padding-top: 15px;
   padding-bottom: 15px;
+  @media (max-width: 575.98px) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   &__left-side {
     display: flex;
     align-items: center;
@@ -13,6 +17,9 @@
       display: block;
       background-color: transparent;
       padding: 15px 5px;
+      @media (max-width: 575.98px) {
+        margin-right: 1rem;
+      }
       &__icon {
         background-color: white;
         width: 25px;
@@ -64,21 +71,34 @@
   &__right-side {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     @media (max-width: 575.98px) {
-      gap: 1rem;
+      gap: 0;
     }
     i {
       color: white;
     }
+    .notifications,
+    .search,
+    .settings {
+      button {
+        border-radius: 3px;
+        padding: 10px 15px;
+        box-shadow: none;
+        &:focus,
+        &:hover {
+          background-color: $light_blue;
+        }
+      }
+    }
     .notifications {
-      a {
+      button {
         position: relative;
         &::before {
           content: "";
           position: absolute;
-          top: 2px;
-          right: -2px;
+          top: 12px;
+          right: 12px;
           width: 8px;
           height: 8px;
           background-color: $green;
@@ -103,6 +123,69 @@
           @media (max-width: 575.98px) {
             display: none;
           }
+        }
+      }
+    }
+    .settings {
+      position: relative;
+      &__dropdown {
+        position: absolute;
+        top: 110%;
+        right: 0;
+        min-width: 200px;
+        background-color: white;
+        border-radius: 3px;
+        padding-bottom: 10px;
+      }
+      &__list {
+        border-bottom: 1px solid $light_gray;
+        list-style: none;
+        padding: 5px 0;
+        margin-bottom: 0;
+        &--item {
+          &.title {
+            color: #42424282;
+            font-size: 12px;
+            padding: 5px 15px;
+          }
+          .font-switch {
+            a {
+              text-decoration: none;
+              color: black;
+              padding: 5px 15px;
+
+              &:hover {
+                background-color: #42424210;
+              }
+            }
+            .font-large {
+              font-size: 30px;
+            }
+            .font-medium {
+              font-size: 25px;
+            }
+            .font-small {
+              font-size: 20px;
+            }
+            .active-font {
+              color: $light_blue;
+            }
+          }
+        }
+        &--link {
+          display: block;
+          color: black;
+          font-size: 14px;
+          text-decoration: none;
+          padding: 5px 15px;
+          transition: all 0.1s ease;
+
+          &:hover {
+            background-color: #42424210;
+          }
+        }
+        &:last-child {
+          border-bottom: none;
         }
       }
     }
