@@ -4,7 +4,6 @@
   background-color: $main_blue;
   padding-top: 15px;
   padding-bottom: 15px;
-  z-index: 1100;
   @media (max-width: 575.98px) {
     padding-top: 0;
     padding-bottom: 0;
@@ -219,7 +218,7 @@
   // transform: translateX(-100%);
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   width: 450px;
-  z-index: 1050;
+  z-index: 1021;
   @media (max-width: 575.98px) {
     width: 300px;
   }

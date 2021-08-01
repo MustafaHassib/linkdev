@@ -83,7 +83,6 @@
   [ngClass]="sidebarShow || dropdownShow ? 'active-overlay' : ''"
 ></div>
 <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
-  <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
     <app-sidebar *ngIf="sidebarShow"></app-sidebar>
   </div>
