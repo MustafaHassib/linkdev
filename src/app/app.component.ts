@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { setTheme } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ export class AppComponent implements OnInit {
   title = 'link-dev';
   navHeight: number;
   ngOnInit() {
+    setTheme('bs4');
+
     const height = document.getElementById('navbar').offsetHeight;
     this.navHeight = height;
   }

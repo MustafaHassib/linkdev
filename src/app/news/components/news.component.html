@@ -1,0 +1,81 @@
+<div class="news-wrapper">
+  <div class="container">
+    <div class="filters">
+      <div class="row my-5">
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <input
+            class="form-control"
+            #drp="bsDaterangepicker"
+            bsDaterangepicker
+            [(ngModel)]="bsRangeValue"
+            (ngModelChange)="filterWithDate()"
+            [bsConfig]="{ rangeInputFormat: 'DD/MM/YYYY' }"
+          />
+        </div>
+
+        <div class="col-xs-12 col-12 col-md-4 form-group">
+          <div class="searchbar-wrapper">
+            <i class="fas fa-search"></i>
+            <input
+              placeholder="Search for news..."
+              type="text"
+              name="search"
+              [(ngModel)]="userSearchKeyWord"
+              (ngModelChange)="filterWithSearchKeyWord()"
+            />
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="col" *ngFor="let category of newsCategories">
+            <div
+              class="news-categories-wrapper text-center"
+              (click)="filterWithCategory($event)"
+            >
+              {{ category.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWS SECTION -->
+    <div class="row">
+      <div class="col-lg-4 mb-4" *ngFor="let item of filteredDataArray">
+        <div class="news-box shadow">
+          <div class="news-box__img">
+            <img
+              [src]="item.urlToImage"
+              class="card-img-top"
+              alt="{{ item.title }} "
+            />
+          </div>
+          <div class="news-box__body">
+            <div class="news-box__body--actions"></div>
+            <div class="news-box__body--content">
+              <h2 class="title">
+                {{ item.title }}
+              </h2>
+              <div class="tags">
+                <ul class="tags__list">
+                  <li class="tags__item">News</li>
+                  <li class="tags__item">Egypt</li>
+                </ul>
+              </div>
+              <div class="description">
+                <p>
+                  {{ item.content }}
+                </p>
+              </div>
+            </div>
+            <div class="news-box__body--footer">
+              <p>
+                <i class="fas fa-calendar-alt"></i>
+                {{ item.publishedAt | date: "EEEE d MMMM y" }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
