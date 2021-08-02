@@ -1,0 +1,37 @@
+@import "../../../assets/styles/vars";
+
+.post-wrapper {
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  .post-title {
+    margin: 2rem 0;
+    font-size: 50px;
+    font-weight: 500;
+  }
+  .post-content {
+    .post-image {
+      img {
+        width: 100%;
+        object-fit: cover;
+        max-height: 400px;
+      }
+    }
+    .post-body {
+      padding: 25px;
+      background-color: white;
+      &__category {
+        margin-bottom: 1rem;
+        font-size: 12px;
+      }
+      &__title {
+        font-weight: 600;
+        font-size: 28px;
+        margin-bottom: 2rem;
+      }
+      &__desc {
+        font-size: 18px;
+      }
+    }
+  }
+}

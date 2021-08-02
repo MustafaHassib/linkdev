@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ZorroAntdModule } from '../shared/antd-zorro.module';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
-  declarations: [NewsComponent],
+  declarations: [NewsComponent, PostComponent],
   imports: [
     CommonModule,
     NewsRoutingModule,

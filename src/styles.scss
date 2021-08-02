@@ -1,16 +1,20 @@
 @import "./assets/styles/vars";
 
 body {
+  background-color: #efefef;
   font-family: $body_font;
 }
 
 .news-wrapper {
   margin-top: 1rem;
   .news-box {
+    background-color: white;
     overflow: hidden;
     border-radius: 5px;
     margin-bottom: 1rem;
     &__img {
+      height: 200px;
+
       img {
         width: 100%;
         height: 200px;
@@ -21,8 +25,14 @@ body {
       padding: 15px 25px;
       &--content {
         .title {
+          color: black;
+          text-decoration: none;
           font-size: 18px;
           margin: 1rem 0;
+          display: block;
+          &:hover {
+            color: $light_blue;
+          }
         }
         .tags {
           &__list {
@@ -59,12 +69,6 @@ body {
   }
 }
 
-/* Importing Bootstrap SCSS file. */
-@import "~bootstrap/scss/bootstrap";
-
-/* Importing Datepicker SCSS file. */
-@import "~ngx-bootstrap/datepicker/bs-datepicker";
-
 .no-results {
   width: 100%;
   min-height: 60vh;
@@ -83,5 +87,19 @@ body {
     font-weight: bold;
     color: $text_gray;
     font-size: 20px;
+  }
+}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: #000;
+  img {
+    margin-bottom: 2rem;
   }
 }

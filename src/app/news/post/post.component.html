@@ -1,0 +1,37 @@
+<div class="post-wrapper" *ngIf="post">
+  <div class="container">
+    <nz-breadcrumb nzSeparator=">">
+      <nz-breadcrumb-item>
+        <a [routerLink]="['/']">Home</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>
+        <a routerLink="/news">News</a>
+      </nz-breadcrumb-item>
+      <nz-breadcrumb-item>News Details</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div class="post-title">
+      <h2>News Details</h2>
+    </div>
+    <div class="post-content">
+      <div class="post-image">
+        <img src="{{ post.urlToImage }}" alt="{{ post.title }}" />
+      </div>
+      <div class="post-body">
+        <div class="post-body__category">Category Name</div>
+        <div class="post-body__title">
+          <h2>
+            {{ post.title }}
+          </h2>
+        </div>
+        <div class="post-body__desc">
+          {{ post.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading" *ngIf="!post">
+  <img src="assets/images/loading-buffering.gif" alt="" />
+  <p>Loading Post...</p>
+</div>

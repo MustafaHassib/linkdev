@@ -5,7 +5,7 @@
         <h2 class="section-title">Latest News</h2>
       </div>
       <div class="col-4 d-flex align-items-center justify-content-end">
-        <a href="#!" class="viewall-btn">
+        <a routerLink="/news" class="viewall-btn">
           View All
           <i class="fas fa-long-arrow-alt-right ms-2"></i>
         </a>
@@ -25,9 +25,9 @@
             <div class="news-box__body">
               <div class="news-box__body--actions"></div>
               <div class="news-box__body--content">
-                <h2 class="title">
+                <a routerLink="news/post/{{ item.id }}" class="title">
                   {{ item.title }}
-                </h2>
+                </a>
                 <div class="tags">
                   <ul class="tags__list">
                     <li class="tags__item">News</li>
@@ -53,3 +53,8 @@
     </div>
   </div>
 </section>
+
+<div class="loading" *ngIf="!filteredDataArray">
+  <img src="assets/images/loading-buffering.gif" alt="" />
+  <p>Loading Post...</p>
+</div>

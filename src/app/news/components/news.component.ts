@@ -50,6 +50,7 @@ export class NewsComponent implements OnInit {
     this.newsService.getNews().subscribe((res) => {
       this.news = res.articles;
       this.filteredDataArray = this.news;
+      this.newsService.newsArray = this.filteredDataArray;
     });
   }
 
@@ -77,6 +78,8 @@ export class NewsComponent implements OnInit {
           formatDate(new Date(article.publishedAt)) <=
             formatDate(new Date(endDate))
       );
+    } else {
+      this.filteredDataArray = this.news;
     }
   }
 

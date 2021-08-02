@@ -82,9 +82,9 @@
           <div class="news-box__body">
             <div class="news-box__body--actions"></div>
             <div class="news-box__body--content">
-              <h2 class="title">
+              <a routerLink="post/{{ item.id }}" class="title">
                 {{ item.title }}
-              </h2>
+              </a>
               <div class="tags">
                 <ul class="tags__list">
                   <li class="tags__item">News</li>
@@ -113,4 +113,9 @@
       <p>Try to change your filters</p>
     </div>
   </div>
+</div>
+
+<div class="loading" *ngIf="!filteredDataArray">
+  <img src="assets/images/loading-buffering.gif" alt="" />
+  <p>Loading Post...</p>
 </div>
