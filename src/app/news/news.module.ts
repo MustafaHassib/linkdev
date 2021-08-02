@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ZorroAntdModule } from '../shared/antd-zorro.module';
 
 @NgModule({
   declarations: [NewsComponent],
@@ -16,6 +17,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     NewsRoutingModule,
     HttpClientModule,
     FormsModule,
+    ZorroAntdModule,
     BsDatepickerModule.forRoot(),
   ],
   providers: [NewsServiceService],

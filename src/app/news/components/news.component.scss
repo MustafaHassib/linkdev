@@ -1,1 +1,37 @@
 @import "../../../assets/styles/vars";
+
+.filters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 2rem 0;
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .form-group {
+    .from-input,
+    .to-input {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .searchbar {
+    min-width: 300px;
+  }
+  .select-category,
+  .sort-by {
+    display: flex;
+    flex-direction: column;
+
+    .ant-select {
+      min-width: 200px;
+    }
+  }
+  .ant-input-search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -64,3 +64,24 @@ body {
 
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+.no-results {
+  width: 100%;
+  min-height: 60vh;
+  margin-bottom: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+  }
+  p {
+    margin-bottom: 0;
+    font-weight: bold;
+    color: $text_gray;
+    font-size: 20px;
+  }
+}

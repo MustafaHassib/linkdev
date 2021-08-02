@@ -1,40 +1,71 @@
 <div class="news-wrapper">
   <div class="container">
     <div class="filters">
-      <div class="row my-5">
-        <div class="col-xs-12 col-12 col-md-4 form-group">
-          <input
-            class="form-control"
-            #drp="bsDaterangepicker"
-            bsDaterangepicker
-            [(ngModel)]="bsRangeValue"
-            (ngModelChange)="filterWithDate()"
-            [bsConfig]="{ rangeInputFormat: 'DD/MM/YYYY' }"
-          />
-        </div>
+      <div class="form-group d-flex">
+        <div class="from-input">
+          <label>From</label>
 
-        <div class="col-xs-12 col-12 col-md-4 form-group">
-          <div class="searchbar-wrapper">
-            <i class="fas fa-search"></i>
-            <input
-              placeholder="Search for news..."
-              type="text"
-              name="search"
-              [(ngModel)]="userSearchKeyWord"
-              (ngModelChange)="filterWithSearchKeyWord()"
-            />
-          </div>
+          <nz-date-picker
+            [nzDisabledDate]="disabledStartDate"
+            nzFormat="dd-MM-yyyy"
+            [(ngModel)]="startDate"
+            (ngModelChange)="onChange($event)"
+            nzPlaceHolder="Start"
+            (nzOnOpenChange)="handleStartOpenChange($event)"
+            class="me-3"
+          ></nz-date-picker>
         </div>
-        <div class="row my-5">
-          <div class="col" *ngFor="let category of newsCategories">
-            <div
-              class="news-categories-wrapper text-center"
-              (click)="filterWithCategory($event)"
-            >
-              {{ category.name }}
-            </div>
-          </div>
+        <div class="to-input">
+          <label>To</label>
+
+          <nz-date-picker
+            #endDatePicker
+            [nzDisabledDate]="disabledEndDate"
+            [(ngModel)]="endDate"
+            (ngModelChange)="onChange($event)"
+            nzFormat="dd-MM-yyyy"
+            nzPlaceHolder="End"
+          ></nz-date-picker>
         </div>
+      </div>
+      <div class="searchbar">
+        <label>Search</label>
+
+        <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+          <input
+            type="text"
+            nz-input
+            placeholder="Type to start search"
+            [(ngModel)]="userSearchKeyWord"
+            (ngModelChange)="filterWithSearchKeyWord()"
+          />
+        </nz-input-group>
+        <ng-template #suffixIconButton>
+          <button nz-button nzType="primary" nzSearch>
+            <i nz-icon nzType="search"></i>
+          </button>
+        </ng-template>
+      </div>
+      <div class="select-category">
+        <label>Select Category</label>
+
+        <nz-select ngModel="all" (ngModelChange)="filterWithCategory($event)">
+          <nz-option nzValue="all" nzLabel="All"></nz-option>
+          <nz-option
+            *ngFor="let category of newsCategories"
+            nzValue="{{ category.name }}"
+            nzLabel="{{ category.name }}"
+          ></nz-option>
+        </nz-select>
+      </div>
+      <div class="sort-by">
+        <label>Sort by</label>
+
+        <nz-select ngModel="default" (ngModelChange)="sortBy($event)">
+          <nz-option nzValue="default" nzLabel="Default"></nz-option>
+          <nz-option nzValue="asc" nzLabel="A to Z"></nz-option>
+          <nz-option nzValue="des" nzLabel="Z to A"></nz-option>
+        </nz-select>
       </div>
     </div>
 
@@ -76,6 +107,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="no-results" *ngIf="filteredDataArray?.length == 0">
+      <img src="assets/images/no-search-results.svg" />
+      <p>Oops! No results found</p>
+      <p>Try to change your filters</p>
     </div>
   </div>
 </div>
