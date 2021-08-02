@@ -61,8 +61,7 @@
       <div class="sort-by">
         <label>Sort by</label>
 
-        <nz-select ngModel="default" (ngModelChange)="sortBy($event)">
-          <nz-option nzValue="default" nzLabel="Default"></nz-option>
+        <nz-select ngModel="asc" (ngModelChange)="sortBy($event)">
           <nz-option nzValue="asc" nzLabel="A to Z"></nz-option>
           <nz-option nzValue="des" nzLabel="Z to A"></nz-option>
         </nz-select>

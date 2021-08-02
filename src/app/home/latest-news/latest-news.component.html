@@ -13,16 +13,20 @@
     </div>
     <div class="news-wrapper">
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 mb-4" *ngFor="let item of filteredDataArray">
           <div class="news-box shadow">
             <div class="news-box__img">
-              <img src="assets/images/Layer 28.png" class="img-fluid" alt="" />
+              <img
+                [src]="item.urlToImage"
+                class="card-img-top"
+                alt="{{ item.title }} "
+              />
             </div>
             <div class="news-box__body">
               <div class="news-box__body--actions"></div>
               <div class="news-box__body--content">
                 <h2 class="title">
-                  President El Sisi Unveils “Egypt Vision 2030”
+                  {{ item.title }}
                 </h2>
                 <div class="tags">
                   <ul class="tags__list">
@@ -32,17 +36,14 @@
                 </div>
                 <div class="description">
                   <p>
-                    If you prefer to have a more personalized tour of the Grand
-                    Egyptian Museum, you can choose one of the thematic tours in
-                    Guided Tours, and we can provide a private tour with one of
-                    our best ...
+                    {{ item.content }}
                   </p>
                 </div>
               </div>
               <div class="news-box__body--footer">
                 <p>
                   <i class="fas fa-calendar-alt"></i>
-                  Wed 12 Aug 2020
+                  {{ item.publishedAt | date: "EEEE d MMMM y" }}
                 </p>
               </div>
             </div>
